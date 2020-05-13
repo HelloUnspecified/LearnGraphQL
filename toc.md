@@ -1,12 +1,15 @@
-# Learn GraphQL
-
-## Overall Flow
+# Overall Course Flow
 
 1. Intro
 2. Architecture and Guiding Principals
-3. Client
-4. API/Server Side
+3. API/Server Side
+4. Client
 5. Patterns and Best Pratices 
+
+# What are we building ??? What is the backdrop?
+    * 
+
+# Learn GraphQL
 
 ## Intro
 
@@ -59,143 +62,184 @@
     * is
     * isn't  
 
-
-_notes_
-* IS IT JUST GRAPH, GRAPH + REST || **
-* what things does graph allow you to do that you couldn't have done with something else.
-* Does graph introduce new "issues/challenges". (solve one problem but introduce another)
-* Socket Support
-* are there tools to help you adopt?
-* rest, jsonapi,
-* authorization... 
-
-1. History
-    1. Soap and WSDL
-    2. OData
-
-5. Other technologies 
-    1. Vs rest
-    2. Vs grpc
-
-2. How did this even come to be.
-    - facebook - 2015, overnight success.
-    - reference history story.
-
-
 ## Getting started with this course
 
-* requirements
+__notes__ 1 structure setup overall such that we can easily reference and update it later. how can we overlay hindsight later. Things learned that invalidate past thinking.
+
+1. System Requirements
     * node ( 14 )
-        ** can we do this without a bundler
+        ** __note__ can we do this without a bundler
         ** just overall node setup
     * browser
-
-* usefull tools
-    * insomina
-    * iterm or your terminal of preference
+    * terminal
+        * iterm or your terminal of preference
+        * refernece other terminal setups and courses
+    * maybe a db. _this db should be installed via `npm i`
     * editor of choice, we're using vscode
+        * vscode plugins
+    * supporting tools
+        * insomnia, postman
+            * __note__ build out a set of insomnia, workspaces, plugins
+    * github
 
+2a
+    * create an automated setup for folks.
+        * homebrew
+        * https://chocolatey.org/
+        * npx
 
+3. Setup Client Side
+    * Steps `npm i`
+        ** are there npm globals
+    * Work through what packages were installed and why
+    * talk through the build pipeline __note__ not as important as the server side 
+    * reference other development stacks and where to do the same.
+        * node, rails, go, .net
+        * vue, react, angular 
+
+4. Server Side Setup
+    * Steps `npm i`
+        ** are there npm globals
+    * Work through what packages were installed and why
+    * build pipeline, deployment automation
+    * reference other development stacks and where to do the same.
+        * graphql server side 
+            * rails, .net, go
+    * brief reference to other frameworks
 
 ## Architecture and Guiding Principals
 
-- Places
-    - Websites
-    - Tools ( quick overview )
-    - playground
+1. Hello World
+    1. Create a simple server 
+    2. define the a simple schema
+    3. define the resolver to fufill the request
+    4. call it
+        * playground
+        * insomnia
+    5 this is not the way to structure your code.
 
-Overall Architecture
-    4. Guiding Principals
-    1. Type System
-    2. Resolver Structure
+2. Overall Architecture
+    1. What are the overall pieces of a GraphQL application
+        * query / mutation
+        * type system
+        * resolution
+    __note__ pull open a whiteboard and draw out how things actually work.
 
-- Architecture requirements
-
-***Type System***
-
-1. What is a schema?
-    1. Why does it matter?
-    2. What does it give you
-2. Components of the Schema
-    1. Base Types
-    2. Custom Types
-    3. Interfaces
-    4. Input Types
-    5. Unions
-3. Schema Management
-    1. Deprecation
-    2. Usage
-4. Directives
-5. Custom Scalars
-6. File Management
-
-***Thinking in Schemas***
-
-- Here is the place we need to describe how to
-
+3. teasing out the cabibilites of what we can do overall which we will cover later.
+    * caching
+    * Error Management
+    * Middleware
+    * versioning
+    * Documentation
 
 ## Server Side
 
-### Hello World
-
-1. create the server 
-2. define the schema
-3. define the resolver to fufill the request
-4. call it
-    * playground
+_note_ 
+    Should we just teach things by walking the stack.. 
+    Build out in the order they would end up executing.
+    Maybe just start with an end to end test.
 
 ### Getting Setup
+
+_note_ use the schema to drive out how we would structure our project, and work.
 
 1. Tooling
 2. Frameworks
 3. Project Structure
     * folder, composition
 
-### thinking in schemas
+### Thinking in Schemas ( abstract piece )
+    _note_ 
+        * this is where we want folks to really think about the domain.. the problem, **not the db**
+        * think about Federation, Microservices, how can decompose and recompose our schema overall 
 
-* Type system
-* query language
+    * talk through what is a "query language" and why do we care.
 
-### Resolvers
+    1. What is a schema?
+        1. Why does it matter?
+        2 what does it give us that we didn't have before
+    
+    * Can't we just do this with rest? 
 
-* Arguments
+2. Understanding the Type System
+    1. Components of the Schema
+        1. Base Types
+            1. Built in Base Types
+                * Input
+                * Query
+                * mutation
+            2. Scalars
+        2. Lists ( arrays )
+        6. Enum
+        3. Interfaces
+        6. Arguments
+        5. Unions
+    
+    Extending our schema
+        1. Directives
+            1. Deprecation
+        2. Custom Scalars
+        
+2. Building our Schema
+    _notes_ something that is actual real world.
+        * Multiple Types
+        * Hierarchical Types
+        * Type Reuse
+        * custom Scalars
+        * query, mutations, field resolvers, 
+        * directives
+
+4. project management
+    1. Schema Management
+        * Deprecation
+        * Documentation
+    2. File Management
+        * schema composition and source control
+
+### Advanced Schema 
+1. Federation
+2. Schema Stitching
+3. Hierarchical Types
+    _note_ another section as it's harder to understand 
+    * how can we take what we built and compose it a bit better for our end customer to understand ( end user of our api )
+
+### Data Fulfillment, Resolvers
+1. Arguments
     1. Parent
     2. Args
     3. DataSources
     4. AST
-
-
-
-
-1. Federation
-2. Schema Stitching
 3. Datasource managing
 4. Hierarchical Resolvers
 5. Field Resolvers
 
-**Resolution and Fulfillment**
+### Mocking our schema
+    * Mocking Data
 
+5. Middleware
 
-Mocking Data
-
-Sockets
 
 2. Hosting - The Server
 3. Security, Authentication / Authorization
 4. Packages
-5. Middleware
 6. Context
 7. Error Management
 8. Living alongside rest
 9. DataLoaders
 10. Logging and Tracing
 11. Performance
+12. talk about dbs.....
+    * simple db... sqlite, mongo, sommething simple..
+13. Sockets
 
+13. Testing.
 
 
 ## Client Side
 
 ### Getting Setup
+
+__notes__ do we really want to split up our setups or just reference back to the main.
 
 1. Tooling
 2. Frameworks
@@ -208,6 +252,8 @@ Sockets
 - What can you do now that you have a schema and a type system
 
 **Consumption**
+2. Components of a query
+    * alia
 
 1. Consuming
     1. Apollo Client
@@ -232,3 +278,40 @@ Sockets
 9. DataLoaders
 10. Logging and Tracing
 11. Performance
+
+
+## Moving to Production
+    * How does deployment work
+    * Monitoring
+    * Logging
+    ** _notes_
+        * tie back to versioning.
+
+
+## notes
+* IS IT JUST GRAPH, GRAPH + REST || **
+* what things does graph allow you to do that you couldn't have done with something else.
+* Does graph introduce new "issues/challenges". (solve one problem but introduce another)
+* Socket Support
+* are there tools to help you adopt?
+* rest, jsonapi,
+* authorization... 
+* lodash like extension for graphql server side.
+
+1. History
+    1. Soap and WSDL
+    2. OData
+
+5. Other technologies 
+    1. Vs rest
+    2. Vs grpc
+
+2. How did this even come to be.
+    - facebook - 2015, overnight success.
+    - reference history story.
+
+API Run button
+another option {
+    postman
+    apiary as another option
+}

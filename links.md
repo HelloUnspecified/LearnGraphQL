@@ -1,5 +1,4 @@
 
-
 ## GraphQL
 
 * GraphQL Spec - [https://github.com/graphql/graphql-spec](https://github.com/graphql/graphql-spec)
