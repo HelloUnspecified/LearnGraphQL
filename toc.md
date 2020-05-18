@@ -7,9 +7,27 @@
 5. Patterns and Best Pratices 
 
 # What are we building ??? What is the backdrop?
-    * 
+    * that.us for august
+    
+    * we need a server that can
+        * CRUD an open space
+        * live updates on spaces
+        * keep track of who is in what spaces
+        * secure it
+        * open api that people can build on.... schema is important here.
+        * need a db... fauna here. 
+    
+    * we need a Client that will
+        * page our results
+        * cache client side
+        * realtime feed of activities
+        * can work with a state machine ( xstate ) we also have apollo client state
 
-# Learn GraphQL
+    * keep track of release cycles
+        * apollo v3 
+        * graphql just released 15?? where is that headed.
+
+# Learn GraphQL graphql.help
 
 ## Intro
 
@@ -29,6 +47,10 @@
         * CRUD
         * Type System
         * Sockets
+
+    1. It's not the first to try this.... History
+        1. Soap and WSDL
+        2. OData
 
 4. Why?
     - Why should we care now?
@@ -61,6 +83,11 @@
 5. what it is, and what it isn't
     * is
     * isn't  
+
+* what things does graph allow you to do that you couldn't have done with something else.
+* Does graph introduce new "issues/challenges". (solve one problem but introduce another)
+
+* rest, jsonapi,
 
 ## Getting started with this course
 
@@ -124,6 +151,7 @@ __notes__ 1 structure setup overall such that we can easily reference and update
         * type system
         * resolution
     __note__ pull open a whiteboard and draw out how things actually work.
+    * IS IT JUST GRAPH, GRAPH + REST || **
 
 3. teasing out the cabibilites of what we can do overall which we will cover later.
     * caching
@@ -180,6 +208,8 @@ _note_ use the schema to drive out how we would structure our project, and work.
             1. Deprecation
         2. Custom Scalars
         
+x. schema IDs
+
 2. Building our Schema
     _notes_ something that is actual real world.
         * Multiple Types
@@ -189,19 +219,22 @@ _note_ use the schema to drive out how we would structure our project, and work.
         * query, mutations, field resolvers, 
         * directives
 
-4. project management
+### Source Project Setup and Config
     1. Schema Management
         * Deprecation
         * Documentation
     2. File Management
         * schema composition and source control
 
-### Advanced Schema 
-1. Federation
-2. Schema Stitching
-3. Hierarchical Types
-    _note_ another section as it's harder to understand 
-    * how can we take what we built and compose it a bit better for our end customer to understand ( end user of our api )
+### Packages ( really tied to the previous section )
+
+### Hosting - The Server
+    * How does this play along with something like express
+    * somthing like apollo is middleware for a route
+
+### Mocking our schema
+    * Mocking Data
+    * dynamic mocking
 
 ### Data Fulfillment, Resolvers
 1. Arguments
@@ -212,99 +245,198 @@ _note_ use the schema to drive out how we would structure our project, and work.
 3. Datasource managing
 4. Hierarchical Resolvers
 5. Field Resolvers
+6. HOC on a resolver
 
-### Mocking our schema
-    * Mocking Data
+### Advanced Schema 
+1. Federation
+2. Schema Stitching
+3. Hierarchical Types
+    _note_ another section as it's harder to understand 
+    * how can we take what we built and compose it a bit better for our end customer to understand ( end user of our api )
 
-5. Middleware
+### Middleware
+    * how does the http server ( express ) middleware play with a framework like apollo
+    * what about middleware in apollo || or in a graphql server itself. 
+
+### Living alongside ...rest
+    * how to consume 3rd party Services
+    * how to resurface 3rd party services 
+    * how to have a rest endpoint live alongside our graph endpoint.
+
+### GraphQL Request Lifecycle
+    * context (User Request Context)
+    * dataSources ( setup data sources for each resolver )
+    * Lifecycle Plugins ( Apollo Only )
+    * Error's (Apollo formatError)
+
+    ** How can the http lifecycle ( req ) play nicely with the graphql req.
+        ** thinking here along the lines of req data, being used by graph request.. something like a correlationID 
+        ** res out.. thinking like an error id generated deep down in the stack, how could that make itself back on the respone headers
+
+### 3rd party packages
+    * how do we play along with 3rd party services
+    * sentry.. what does using tool like that mean in this graph world.
+        ** answering the q of.. do I have find a tool that supports graph, or can we use the giant eco system that we already have? 
+
+### Serving Sockets
+    * Different auth and setup
+        * Lifecycle is different.
+    * Resolver Arguments
+    * Call Fulfillment
+        * Resolve Data
+        * ____ filter function ( who should it send too )
+    * wss ( protocol ) requirments of hosting
+
+### Security
+    * how do you do Authentication
+    * how do you do authorization
+    * how do you build caller context
+    * how do other services leverage that
+    * JWT
+    ** this is a bit different when were talking socket ( differet lifecycle )
+    ** passport.js - how can we play with auth services
+    ** interaction with 3rd party services... Auth0, Otka, etc
+
+### "Logging"
+    * Error Logging
+        * processs.on ( * our bad stuff )
+    * Graph Request Tracing
+    * HTTP Request Tracing
+    * APM Logging
+    * Developer Logging
+    * Monitoring
+    * event emitter usage
 
 
-2. Hosting - The Server
-3. Security, Authentication / Authorization
-4. Packages
-6. Context
-7. Error Management
-8. Living alongside rest
-9. DataLoaders
-10. Logging and Tracing
-11. Performance
-12. talk about dbs.....
+### Performance
+    * Promises - don't block the event loop.
+    * importance of schema recursion and how dataLoaders can help us.
+    * connection management on the server
+    * best pratices around api server
+        * cors
+        * etag
+        * express best pratices
+
+### Databases
+    * Fauna
     * simple db... sqlite, mongo, sommething simple..
-13. Sockets
 
-13. Testing.
 
+### Testing
+    * how can we test a resolver
+    * how can we do some ete tests
+    * how can we use mocking
+
+### Schema Stitching
+    * how to compose a larger schema micro schemas
+    * services not designed to play together
+
+### Federation
+    * micro services who are designed to play together
+    * `extends` extending the Types
+    * cross service resolution/Fulfillment
+    * @keys
+    * @external how can I use/get data from my peer service?
+
+### Schema Extensions
+    * can we make our own?
+
+### Deployment
+    * versioning
+    
 
 ## Client Side
 
 ### Getting Setup
-
-__notes__ do we really want to split up our setups or just reference back to the main.
 
 1. Tooling
 2. Frameworks
 3. Project Structure
     * folder, composition
 
+### Query language
+    * Components of a query
+        * aliased fields?
+        * named queries
+        * fragments
+        * Arguments
+        * variables
+    * raw http request post
+    * the id
+    
+    * playground
 
-**Introspection**
+### Introspection
+    * how can query the type system to do usefull stuff
+    * What can you do now that you have a schema and a type system
 
-- What can you do now that you have a schema and a type system
+### composing a query
+    * simple query
+    * named queries
+    * query where we alias things
+    * fragments ( reuse parts ) and why that's important
+    * compound queries 
+        * how can we do multiple things with one request.. shape the data to our own liking.
+    * recursive query...   
+        * good
+        * bad 
+        * and the stupid
+    * query vs mutation
+    * Arguments
+    * Variables
+    * meta fields, Unions etc.
+    * enums 
+    * @ client side directives
+    * default values 
 
-**Consumption**
-2. Components of a query
-    * alia
+    _note_ 
+        * note about federation and schema stiching. Scenario here is where maybe a service drops out but we get a result
 
-1. Consuming
-    1. Apollo Client
-        1. network stack
-        2. 
-    2. Gqless
-    3. Raw
-    4. xState
-2. Errors 
-3. State
+    * Result Structure
+        * how are things returned and why
 
-Sockets
+### Error Handing
+    * Collection of Errors
+    * difference of a 200 with an error vs a 500/401
+    * compound queries with partial results
 
-1. Query language
-2. Hosting - The Server
-3. Security, Authentication / Authorization
-4. Packages
-5. Middleware
-6. Context
-7. Error Management
-8. Living alongside rest
-9. DataLoaders
-10. Logging and Tracing
-11. Performance
+### Tracing and Schema Extensions
+    * Explore the built in tracing results.
+    * what can we do with that?
 
+### Connecting to Sockets
+### caching / state management
+### Persisted queries
+### Polling 
+### Refech results, forced refetch
+### Mutation changes cached results
+### Paging
+    * fetch on more.
 
-## Moving to Production
-    * How does deployment work
-    * Monitoring
-    * Logging
-    ** _notes_
-        * tie back to versioning.
+### link composition
+    * passing along headers
+    * link middleware
+    * calling two different graphql services
+    * link reconnects
+    * Batching
 
+### testing 
+### mocking
 
-## notes
-* IS IT JUST GRAPH, GRAPH + REST || **
-* what things does graph allow you to do that you couldn't have done with something else.
-* Does graph introduce new "issues/challenges". (solve one problem but introduce another)
-* Socket Support
-* are there tools to help you adopt?
-* rest, jsonapi,
-* authorization... 
+### packages
+1. Apollo Client
+    1. network stack
+    2. 
+2. Gqless
+3. Raw
+4. xState
+
+## Advanced Client
+### SSR, get data from tree... ( react )
+
+## notes, errr, what do we do with this??
+
 * lodash like extension for graphql server side.
-
-1. History
-    1. Soap and WSDL
-    2. OData
-
-5. Other technologies 
-    1. Vs rest
-    2. Vs grpc
 
 2. How did this even come to be.
     - facebook - 2015, overnight success.
