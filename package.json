@@ -1,0 +1,40 @@
+{
+  "name": "graphql.help.base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "engines": {
+    "node": "14.x"
+  },
+  "author": "Unspecified",
+  "contributors": [
+    {
+      "name": "Clark Sell",
+      "email": "hello@unspecified.io"
+    }
+  ],
+  "keywords": [
+    "node, react, graphql, apollo"
+  ],
+  "homepage": "https://graphql.help",
+  "bugs": {
+    "url": "https://github.com/HelloUnspecified/LearnGraphQL/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lerna": "^3.21.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HelloUnspecified/LearnGraphQL.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run validate"
+    }
+  }
+}

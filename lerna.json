@@ -1,0 +1,4 @@
+{
+  "packages": ["GettingSetup/BaseProject/*"],
+  "version": "0.0.0"
+}

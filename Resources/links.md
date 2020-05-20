@@ -39,3 +39,11 @@
 * [merge-graphql-schemas]() - `npm i merge-graphql-schemas` 
 
 chentsulin list of awesome - https://github.com/chentsulin/awesome-graphql
+
+
+
+
+
+### todo
+[nodenv](https://github.com/nodenv/nodenv)
+[base template server project](https://github.com/HelloUnspecified/graphql-help-template-server)
