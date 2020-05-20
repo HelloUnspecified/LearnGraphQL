@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lerna run validate"
+      "pre-commit": "lerna run test"
     }
   }
 }

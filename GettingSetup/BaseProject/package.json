@@ -6,8 +6,8 @@
   "scripts": {
     "start": "DEBUG=graphql.help:* nodemon ./index.js --start",
     "lint": "eslint '**/*.js'",
-    "test": "jest",
-    "validate": "concurrently npm:lint npm:test -c \"bgGreen,bgCyan\""
+    "jest": "jest",
+    "test": "concurrently npm:lint npm:test -c \"bgGreen,bgCyan\""
   },
   "engines": {
     "node": "14.x"
