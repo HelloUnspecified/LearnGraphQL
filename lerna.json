@@ -1,0 +1,4 @@
+{
+  "packages": ["./GettingSetup/*", "./Architecture/*"],
+  "version": "0.0.0"
+}
