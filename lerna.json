@@ -1,4 +1,4 @@
 {
-  "packages": ["GettingSetup/BaseProject/*"],
+  "packages": ["./GettingSetup/*"],
   "version": "0.0.0"
 }
