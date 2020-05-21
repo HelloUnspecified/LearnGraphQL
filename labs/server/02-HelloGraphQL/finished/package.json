@@ -1,5 +1,5 @@
 {
-  "name": "graphql.help.gettingstarted.base",
+  "name": "graphql.help.architecture.finished.spec",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
@@ -7,7 +7,8 @@
     "start": "DEBUG=graphql.help:* nodemon ./index.js --start",
     "lint": "eslint '**/*.js'",
     "test": "jest",
-    "validate": "concurrently npm:lint npm:test -c \"bgGreen,bgCyan\""
+    "validate": "concurrently npm:lint npm:test -c \"bgGreen,bgCyan\"",
+    "npm:install": "npm install"
   },
   "engines": {
     "node": "14.x"
@@ -28,10 +29,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "apollo-server-express": "^2.13.1",
     "concurrently": "^5.2.0",
     "debug": "^4.1.1",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0"
   },
   "devDependencies": {
     "eslint": "^7.0.0",

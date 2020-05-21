@@ -1,1 +1,0 @@
-this is our guide for this section.

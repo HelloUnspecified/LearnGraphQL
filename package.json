@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "validate": "lerna run validate",
+    "i": "lerna run npm:install"
   },
   "engines": {
     "node": "14.x"

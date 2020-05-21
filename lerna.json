@@ -1,4 +1,4 @@
 {
-  "packages": ["./GettingSetup/*", "./Architecture/*"],
+  "packages": ["./labs/server/*/finished/"],
   "version": "0.0.0"
 }
