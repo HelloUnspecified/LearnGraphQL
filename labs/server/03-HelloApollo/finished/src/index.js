@@ -2,7 +2,7 @@ const debug = require('debug');
 const express = require('express');
 const { gql, ApolloServer } = require('apollo-server-express');
 
-const dlog = debug('graphql.help:architecture');
+const dlog = debug('graphql.help:03:root');
 const typeDefs = gql`
   type Query {
     hello: String
