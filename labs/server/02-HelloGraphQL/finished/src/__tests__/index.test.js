@@ -29,21 +29,4 @@ describe('graphql server', () => {
         done();
       });
   });
-
-  it('post raw query', (done) => {
-    const rawPostBody = { query: 'query {hello}' };
-    request(app)
-      .post('/graphql')
-      .set('Accept', 'application/json')
-      .send(rawPostBody)
-      .then((response) => {
-        expect(response.statusCode).toBe(200);
-        expect(response.body).toEqual({
-          data: {
-            hello: 'world',
-          },
-        });
-        done();
-      });
-  });
 });

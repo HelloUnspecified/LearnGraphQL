@@ -3,7 +3,7 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString } = require('graphql');
 
-const dlog = debug('graphql.help:');
+const dlog = debug('graphql.help:02:root');
 
 function resolve(root, args, context, ast) {
   dlog('from our resolve function');
