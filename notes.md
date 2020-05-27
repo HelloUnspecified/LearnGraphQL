@@ -14,3 +14,29 @@ is there a tool that can script out the starting point.
 Spirit - is there a good automated way to create a some base source structure from some point in time to get started locally. Keep the barrier low.
 
 Debugging .. what are we doing here?
+
+Domain Model -
+Create the domain model ...
+
+Session
+
+- hosting person
+- time,
+- room,
+- topic,
+- attendees
+- notes
+- tags
+
+action:
+
+- create
+- update
+- cancel
+- schedule
+
+get a list
+
+- by topic
+- by person
+- by schedule
