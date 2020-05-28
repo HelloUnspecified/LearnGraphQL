@@ -1,0 +1,29 @@
+interface Session {
+  id: ID!
+  title: String
+  speakers: [Speaker]
+}
+
+type OpenSpace implements Session {
+  id: ID!
+  title: String
+  abstract: String
+  room: String
+  speakers: [Speaker]
+}
+
+type Workshop implements Session {
+  id: ID!
+  title: String
+  abstract: String
+  room: String
+  speakers: [Speaker]
+}
+
+type Presentation implements Session {
+  id: ID!
+  title: String
+  abstract: String
+  room: String
+  speakers: [Speaker]
+}

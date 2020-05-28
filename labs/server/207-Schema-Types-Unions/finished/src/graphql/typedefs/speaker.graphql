@@ -1,0 +1,7 @@
+type Speaker {
+  id: ID!
+  name: String
+  twitter: String
+  website: String
+  Sessions: [Session]
+}
