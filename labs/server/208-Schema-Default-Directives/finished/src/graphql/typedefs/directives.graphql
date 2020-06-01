@@ -1,0 +1,1 @@
+directive @skip(if: Boolean!) on OBJECT | FIELD_DEFINITION | FRAGMENT_SPREAD

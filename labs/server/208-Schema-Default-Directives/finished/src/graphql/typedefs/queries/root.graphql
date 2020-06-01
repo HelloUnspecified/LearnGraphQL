@@ -1,0 +1,5 @@
+type Query {
+  schedule(contains: String): [ScheduleDetails]
+  speakers: [Speaker]
+  sessions: [Session]
+}
