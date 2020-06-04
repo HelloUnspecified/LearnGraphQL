@@ -1,0 +1,6 @@
+type Query @visitObject @logUsage {
+  schedule(contains: String): [ScheduleDetails]
+  speakers: [Speaker]
+  sessions: [Session] @visitFieldDefinition
+  child: RootChild
+}

@@ -1,0 +1,16 @@
+directive @skip(if: Boolean!) on OBJECT | FIELD_DEFINITION | FRAGMENT_SPREAD
+
+directive @upperCase on FIELD_DEFINITION | OBJECT
+directive @logUsage on OBJECT
+
+directive @visitArgumentDefinition on ARGUMENT_DEFINITION
+directive @visitEnum on ENUM
+directive @visitEnumValue on ENUM_VALUE
+directive @visitFieldDefinition on FIELD_DEFINITION
+directive @visitInputFieldDefinition on INPUT_FIELD_DEFINITION
+directive @visitInputObject on INPUT_OBJECT
+directive @visitInterface on INTERFACE
+directive @visitObject on OBJECT
+directive @visitScalar on SCALAR
+directive @visitSchema on SCHEMA
+directive @visitUnion on UNION
