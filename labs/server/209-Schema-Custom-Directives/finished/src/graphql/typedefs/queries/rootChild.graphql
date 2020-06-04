@@ -1,0 +1,4 @@
+type RootChild {
+  speakers: [Speaker]
+  sessions: [Session]
+}

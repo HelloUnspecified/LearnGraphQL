@@ -1,0 +1,3 @@
+union ScheduleDetails @visitUnion = Speaker | Workshop | Presentation
+
+extend union ScheduleDetails = OpenSpace

@@ -1,0 +1,37 @@
+interface Session @visitInterface {
+  id: ID!
+  title: String
+  speakers: [Speaker]
+  tags: [String]
+  rating: PositiveInt
+}
+
+type OpenSpace implements Session {
+  id: ID!
+  title: String
+  abstract: String
+  room: String
+  speakers: [Speaker]
+  tags: [String]
+  rating: PositiveInt
+}
+
+type Workshop implements Session {
+  id: ID!
+  title: String
+  abstract: String
+  room: String
+  speakers: [Speaker]
+  tags: [String]
+  rating: PositiveInt
+}
+
+type Presentation implements Session {
+  id: ID!
+  title: String
+  abstract: String
+  room: String
+  speakers: [Speaker]
+  tags: [String]
+  rating: PositiveInt
+}

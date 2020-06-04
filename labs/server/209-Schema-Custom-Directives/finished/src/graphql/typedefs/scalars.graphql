@@ -1,0 +1,2 @@
+scalar PositiveInt @visitScalar
+extend scalar String @visitScalar
