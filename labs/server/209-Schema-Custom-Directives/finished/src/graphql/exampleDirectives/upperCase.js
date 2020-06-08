@@ -43,6 +43,11 @@ class UpperCaseDirective extends SchemaDirectiveVisitor {
     });
   }
 
+  visitArgumentDefinition(theArg) {
+    dlog('visitArgumentDefinition', theArg);
+    const x = 'asdf';
+  }
+
   visitFieldDefinition(field) {
     dlog('visitFieldDefinition');
 

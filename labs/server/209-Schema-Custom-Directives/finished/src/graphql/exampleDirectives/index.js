@@ -1,7 +1,9 @@
-const logUsage = require('./logUsage');
+// const logUsage = require('./logUsage');
 const upperCase = require('./upperCase');
+// const raw = require('./raw');
 
 module.exports = {
-  logUsage,
+  // logUsage,
   upperCase,
+  // raw,
 };

@@ -111,6 +111,29 @@ const resolvers = {
     },
     child: () => ({}),
   },
+  Mutation: {
+    // addSession(session: NewSession!): Session
+    addSession: (_, { session }, context) => {
+      dlog('addSession');
+
+      return {
+        type: 'OpenSpace',
+        id: '1010101',
+        ...session,
+      };
+    },
+
+    // addRating(sessionId: ID!, rating: Int!): Session
+    addRating: (_, { sessionId, rating }, context) => {
+      dlog('addRating');
+      return {
+        type: 'OpenSpace',
+        id: sessionId,
+        title: 'hello from resolver',
+        rating,
+      };
+    },
+  },
 };
 
 module.exports = resolvers;
