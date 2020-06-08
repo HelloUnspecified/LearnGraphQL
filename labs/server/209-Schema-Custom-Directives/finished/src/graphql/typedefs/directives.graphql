@@ -1,6 +1,6 @@
 directive @skip(if: Boolean!) on OBJECT | FIELD_DEFINITION | FRAGMENT_SPREAD
 
-directive @upperCase on FIELD_DEFINITION | OBJECT
+directive @upperCase on FIELD_DEFINITION | OBJECT | ARGUMENT_DEFINITION
 directive @logUsage on OBJECT
 
 directive @visitArgumentDefinition on ARGUMENT_DEFINITION

@@ -1,0 +1,4 @@
+type Mutation {
+  addRating(sessionId: ID!, rating: Int!): Session
+  addSession(session: NewSession!): Session
+}
