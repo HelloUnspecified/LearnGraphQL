@@ -1,0 +1,6 @@
+type Member {
+  id: ID!
+  firstName: String
+  lastName: String
+  profileImage: String
+}

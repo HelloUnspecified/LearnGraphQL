@@ -18,7 +18,7 @@ type OpenSpace implements Session {
 
 type Workshop implements Session {
   id: ID!
-  title: String
+  title: String @upperCase
   abstract: String
   room: String
   speakers: [Speaker]

@@ -1,0 +1,4 @@
+input CreateSessionInput {
+  title: String!
+  shortDescription: String!
+}
