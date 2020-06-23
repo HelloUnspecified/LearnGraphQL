@@ -1,0 +1,48 @@
+fragment speakerDeets on Speaker {
+  __typename
+  id
+  name
+  #   website
+}
+
+fragment sessionDeets on Session {
+  __typename
+  id
+  title
+  #   room
+}
+
+query getScheduleDeets {
+  schedule(contains: "twitch") {
+    __typename
+
+    ...sessionDeets
+    ...speakerDeets
+  }
+}
+
+query getAllScheduleDeets {
+  schedule {
+    __typename
+
+    ...sessionDeets
+    ...speakerDeets
+  }
+}
+
+query getSpeakersSessions {
+  sessions {
+    ...sessionDeets
+  }
+
+  speakers {
+    ...speakerDeets
+  }
+}
+
+query getSpeakerDeets {
+  schedule {
+    __typename
+    ...speakerDeets
+  }
+}

@@ -11,7 +11,8 @@ const dlog = debug(`${constants.rootNamespace}:directives:visitScalar`);
 
 class VisitScalar extends SchemaDirectiveVisitor {
   visitScalar(scalar) {
-    console.log('visitScalar');
+    dlog('visitScalar');
+    const xx = scalar;
   }
 }
 

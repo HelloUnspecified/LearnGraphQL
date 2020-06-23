@@ -1,45 +1,56 @@
-const { makeExecutableSchema } = require('@graphql-tools/schema');
+const { ApolloServer, PubSub } = require('apollo-server-express');
 const debug = require('debug');
-const { ApolloServer } = require('apollo-server-express');
+
+const pubsub = new PubSub();
 
 const typeDefs = require('./typedefs');
 const resolvers = require('./resolvers');
-const directives = require('./directives');
-const exampleDirectives = require('./exampleDirectives');
 const constants = require('../constants');
 
 const dlog = debug(`${constants.rootNamespace}:graphql`);
 
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers,
-  schemaDirectives: {
-    ...directives,
-    ...exampleDirectives,
-  },
-});
-
 const middleware = () => {
   dlog('creating server');
   const apollo = new ApolloServer({
-    schema,
-    // mocks: true,
+    typeDefs,
+    resolvers,
     playground: {
       settings: {
         'schema.polling.enable': false,
         'schema.disableComments': false,
       },
     },
+
     dataSources: () => ({
       mongo: 'the mongos',
+      pubsub,
     }),
-    context: (req) => {
+
+    // eslint-disable-next-line consistent-return
+    context: async ({ _, connection }) => {
       dlog('context');
-      return { context: { user: 'clark' } };
+      if (connection) {
+        return {
+          dataSourcesHack: {
+            pubsub,
+          },
+        };
+      }
+    },
+
+    formatError: (...args) => {
+      dlog('formatError %O', args);
+      return args;
+    },
+
+    subscriptions: {
+      onConnect: () => {
+        dlog('socket connected');
+      },
     },
   });
 
-  return apollo.getMiddleware({ path: '/', playground: true });
+  return apollo;
 };
 
 module.exports = middleware();

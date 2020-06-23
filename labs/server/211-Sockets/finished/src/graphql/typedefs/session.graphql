@@ -1,0 +1,11 @@
+type Session {
+  id: ID!
+  title: String!
+  shortDescription: String!
+  startingDateTime: String!
+
+  host: Member!
+  attendees: [Member]
+
+  tags: [String]
+}

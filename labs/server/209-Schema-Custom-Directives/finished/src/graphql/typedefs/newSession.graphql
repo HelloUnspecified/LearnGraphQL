@@ -1,6 +1,6 @@
 "here is me adding some awesome develper docs"
 input NewSession {
   title: String
-  abstract: String
+  abstract: String @visitInputFieldDefinition
   tags: [String]
 }
