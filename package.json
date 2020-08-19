@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "lerna run validate",
     "i": "lerna run npm:install",
+    "u": "lerna run npm:update",
     "ci": "lerna run npm:ci"
   },
   "engines": {
